@@ -6,11 +6,11 @@
 编译方法:
 
     cd lede
-    echo 'src-git-full lienol https://github.com/xepher/openwrt-udpgame'>>feeds.conf.default
+    echo 'src-git-full xepher https://github.com/xepher/openwrt-udpgame.git'>>feeds.conf.default
     rm -rf tmp/
     
     ./scripts/feeds update -a
-    ./scripts/feeds install -a -p lienol
+    ./scripts/feeds install -a -p xepher
 
     make menuconfig
 
