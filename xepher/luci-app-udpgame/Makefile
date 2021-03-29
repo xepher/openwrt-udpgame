@@ -61,7 +61,12 @@ define Package/$(PKG_NAME)
 	TITLE:=LuCI for udpgame(udp2raw, tinyfecVPN and tinyMapper)
 	URL:=https://github.com/xepher/openwrt-udpgame
 	PKGARCH:=all
-	LUCI_DEPENDS:=+PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw:udp2raw-tunnel +PACKAGE_$(PKG_NAME)_INCLUDE_tinyfecVPN:tinyfecVPN +PACKAGE_$(PKG_NAME)_INCLUDE_tinyMapper:tinyMapper
+	DEPENDS:=+udp2raw-tunnel \
+			+tinyfecVPN \
+			+tinyMapper \
+			+PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw:udp2raw-tunnel \
+			+PACKAGE_$(PKG_NAME)_INCLUDE_tinyfecVPN:tinyfecVPN \
+			+PACKAGE_$(PKG_NAME)_INCLUDE_tinyMapper:tinyMapper
 endef
 
 define Package/$(PKG_NAME)/description
