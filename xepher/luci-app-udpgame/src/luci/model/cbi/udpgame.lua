@@ -11,5 +11,6 @@ service_port = s:option(Value, "service_port", translate("Service Port"))
 udp2raw_port = s:option(Value, "udp2raw_port", translate("Udp2raw Port"))
 password = s:option(Value, "password", translate("Password"))
 fec = s:option(Value, "fec", translate("Fec"))
+mode = s:option(Value, "mode", translate("Mode"))
 
 return m
