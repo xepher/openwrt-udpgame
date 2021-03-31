@@ -8,15 +8,17 @@ run_udpgame()
 	local udp2raw_port
 	local password
 	local fec
+	local mode
 	
 	config_get server $1 server
 	config_get service_port $1 service_port
 	config_get udp2raw_port $1 udp2raw_port
 	config_get password $1 password
 	config_get fec $1 fec
+	config_get mode $1 mode
 
 	(tinymapper -l 0.0.0.0:$service_port -r10.22.22.1:$service_port -t -u >/dev/null 2>&1 )&
-	(tinyfecvpn -c -r127.0.0.1:24444 --sub-net 10.22.22.0 -f$fec --tun-dev tun100 --mode 0 --keep-reconnect >/dev/null 2>&1 )&
+	(tinyfecvpn -c -r127.0.0.1:24444 --sub-net 10.22.22.0 -f$fec --tun-dev tun100 --mode $mode --keep-reconnect >/dev/null 2>&1 )&
 	(udp2raw -c -l127.0.0.1:24444 -r$server:$udp2raw_port --raw-mode faketcp -a -k $password >/dev/null 2>&1 )&
 }
 
