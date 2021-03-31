@@ -1,10 +1,11 @@
 
 config udpgame
-	option server '11.11.11.11'
-	option service_port '1111'
-	option udp2raw_port '1111'
+	option server '127.0.0.1'
+	option service_port '10246'
+	option udp2raw_port '6666'
 	option password 'passwd'
 	option fec '2:4'
+	option mode '0'
 	option auto '1'
 	option enable '1'
 
