@@ -7,13 +7,13 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=udp2raw-tunnel
-PKG_VERSION:=20210311.0
+PKG_NAME:=udp2raw
+PKG_VERSION:=20240610.0
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/wangyu-/udp2raw-tunnel.git
-PKG_SOURCE_VERSION:=b98a467eed197e856518e7ce31a4fe5d5d62901d
+PKG_SOURCE_URL:=https://github.com/wangyu-/udp2raw.git
+PKG_SOURCE_VERSION:=4623f878e08bc8f6f9253d4670569724d4c0a1b7
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 
@@ -27,16 +27,16 @@ PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/udp2raw-tunnel
+define Package/udp2raw
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=Tunnel which turns UDP Traffic into Encrypted FakeTCP/UDP/ICMP Traffic
-	URL:=https://github.com/wangyu-/udp2raw-tunnel
+	URL:=https://github.com/wangyu-/udp2raw
 	DEPENDS:= +libstdcpp +libpthread +librt
 endef
 
-define Package/udp2raw-tunnel/description
-	udp2raw-tunnel is a tunnel which turns UDP Traffic into Encrypted FakeTCP/UDP/ICMP Traffic by using Raw Socket.
+define Package/udp2raw/description
+	udp2raw is a tunnel which turns UDP Traffic into Encrypted FakeTCP/UDP/ICMP Traffic by using Raw Socket.
 endef
 
 MAKE_FLAGS += cross
@@ -49,9 +49,9 @@ define Build/Prepare
 	$(Build/Patch)
 endef
 
-define Package/udp2raw-tunnel/install
+define Package/udp2raw/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/udp2raw_cross $(1)/usr/bin/udp2raw
 endef
 
-$(eval $(call BuildPackage,udp2raw-tunnel))
+$(eval $(call BuildPackage,udp2raw))
