@@ -15,7 +15,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)/config
 config PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw
-	bool "Include udp2raw-tunnel"
+	bool "Include udp2raw"
 	default y if i386||x86_64||arm||aarch64
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_tinyfecVPN
@@ -61,8 +61,8 @@ define Package/$(PKG_NAME)
 	TITLE:=LuCI for udpgame(udp2raw, tinyfecVPN and tinyMapper)
 	URL:=https://github.com/xepher/openwrt-udpgame
 	PKGARCH:=all
-	DEPENDS:=+udp2raw-tunnel +tinyfecVPN +tinyMapper \
-			+PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw:udp2raw-tunnel \
+	DEPENDS:=+udp2raw +tinyfecVPN +tinyMapper \
+			+PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw:udp2raw \
 			+PACKAGE_$(PKG_NAME)_INCLUDE_tinyfecVPN:tinyfecVPN \
 			+PACKAGE_$(PKG_NAME)_INCLUDE_tinyMapper:tinyMapper
 endef
